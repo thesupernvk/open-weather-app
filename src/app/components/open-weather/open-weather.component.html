@@ -1,0 +1,44 @@
+<div *ngIf="weatherDetails">
+    
+    <h1 class="cover-heading">TODAY IN {{weatherDetails?.name | uppercase}}</h1>
+    <div class="container">
+        <div class="row padding-top-bottom-20">
+            <div class="col-sm-6">
+
+                <img src="assets/icons/005-drizzle.png" alt="drizzle" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='drizzle'">
+
+                <img src="assets/icons-2/040-rain.png" alt="moderate rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='moderate rain'">
+                <img src="assets/icons-2/010-rain-3.png" alt="light rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='light rain'">
+                <img src="assets/icons-2/040-rain.png" alt="proximity moderate rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='proximity moderate rain'">
+                <img src="assets/icons-2/011-night-rain.png" alt="light intensity shower rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='light intensity shower rain'">
+                <img src="assets/icons/029-storm-1.png" alt="heavy intensity rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='heavy intensity rain'">
+
+                <img src="assets/icons-2/025-cloudy-2.png" alt="overcast clouds" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='overcast clouds'">
+                <img src="assets/icons-2/030-clouds-1.png" alt="broken clouds" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='broken clouds'">
+                <img src="assets/icons-2/049-clouds.png" alt="few clouds" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='few clouds'">
+                <img src="assets/icons-2/015-clouds-3.png" alt="scattered clouds" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='scattered clouds'">
+
+                <img src="assets/icons-2/025-cloudy-2.png" alt="mist" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='mist'">
+
+                <img src="assets/icons/006-fog.png" alt="fog" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='fog'">
+
+                <img src="assets/icons-2/050-sun.png" alt="Sky is Clear" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='Sky is Clear'">
+                <img src="assets/icons-2/050-sun.png" alt="Sky is Clear" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='clear sky'">
+
+                <img src="assets/icons-2/015-clouds-3.png" alt="haze" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='haze'">
+
+                <img src="assets/icons-2/008-snow-1.png" alt="light snow" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='light snow'">
+                <img src="assets/icons-2/008-snow-1.png" alt="light shower sleet" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='light shower sleet'">
+                <img src="assets/icons-2/042-snow.png" alt="heavy snow" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='heavy snow'">
+
+            </div>
+            <div class="col-sm-6 padding-top-55">
+                <p class="lead"><b>{{weatherDetails.main.temp}}° C</b> with <b>{{weatherDetails.weather[0].description | uppercase}}</b></p>
+                <p class="lead">Max Temperature <b>{{weatherDetails.main.temp_max}}° C</b></p>
+                <p class="lead">Min Temperature <b>{{weatherDetails.main.temp_min}}° C</b></p>
+            </div>
+        </div>
+
+    </div>
+        
+</div>
