@@ -1,4 +1,4 @@
-<div *ngIf="weatherDetails">
+<div *ngIf="weatherDetails?.name">
     
     <h1 class="cover-heading">TODAY IN {{weatherDetails?.name | uppercase}}</h1>
     <div class="container">
@@ -41,4 +41,8 @@
 
     </div>
         
+</div>
+<div *ngIf="weatherDetails?.cod === 429">
+    Since this is a public API with a limitation of 60 calls per day, it seems that the limit has already reached.
+    You can check back tomorrow :)
 </div>

@@ -31,7 +31,7 @@ export class OpenWeatherComponent extends WeatherService implements OnInit {
             this.weatherDetails = res;
           });
         }, (error) => {
-          
+          alert("service error");
         });
       } else {
         
