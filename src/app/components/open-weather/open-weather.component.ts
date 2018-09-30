@@ -9,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OpenWeatherComponent extends WeatherService implements OnInit {
 
-  weatherDetails : {};
+  weatherDetails : any = {};
   lat : any;
   long : any;
+  dateToday : Date = new Date();
+  isDayTime : boolean = false;
 
   constructor(http: HttpClient) {
     super(http);
+    let hours = this.dateToday.getHours();
+    this.isDayTime = (hours > 6 && hours < 19);
   }
 
   ngOnInit() {

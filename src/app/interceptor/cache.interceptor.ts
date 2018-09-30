@@ -3,7 +3,7 @@ import { HttpEvent, HttpRequest, HttpResponse, HttpInterceptor, HttpHandler } fr
 
 import { Observable } from 'rxjs/Observable';
 import { startWith, tap } from 'rxjs/operators';
-import 'rxjs/add/observable/of';
+import { of } from 'rxjs';
 
 import { RequestCacheService } from '../services/request-cache.service';
 
@@ -13,7 +13,7 @@ export class CachingInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     const cachedResponse = this.cache.get(req);
-    return cachedResponse ? Observable.of(cachedResponse) : this.sendRequest(req, next, this.cache);
+    return cachedResponse ? of(cachedResponse) : this.sendRequest(req, next, this.cache);
   }
 
   sendRequest(

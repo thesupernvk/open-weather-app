@@ -1,32 +1,51 @@
 <div *ngIf="weatherDetails?.name">
-    
-    <h1 class="cover-heading">TODAY IN {{weatherDetails?.name | uppercase}}</h1>
+    <h1 class="cover-heading" *ngIf="isDayTime">TODAY IN {{weatherDetails?.name | uppercase}}</h1>
+    <h1 class="cover-heading" *ngIf="!isDayTime">TONIGHT IN {{weatherDetails?.name | uppercase}}</h1>
     <div class="container">
         <div class="row padding-top-bottom-20">
             <div class="col-sm-6">
 
+                <!-- Drizzle -->
                 <img src="assets/icons/005-drizzle.png" alt="drizzle" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='drizzle'">
 
-                <img src="assets/icons-2/040-rain.png" alt="moderate rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='moderate rain'">
-                <img src="assets/icons-2/010-rain-3.png" alt="light rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='light rain'">
-                <img src="assets/icons-2/040-rain.png" alt="proximity moderate rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='proximity moderate rain'">
-                <img src="assets/icons-2/011-night-rain.png" alt="light intensity shower rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='light intensity shower rain'">
-                <img src="assets/icons/029-storm-1.png" alt="heavy intensity rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='heavy intensity rain'">
+                <!-- Rain -->
+                <img src="assets/icons-2/040-rain.png" alt="moderate rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='moderate rain' && isDayTime">
+                <img src="assets/icons-2/010-rain-3.png" alt="light rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='light rain' && isDayTime">
+                <img src="assets/icons-2/040-rain.png" alt="proximity moderate rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='proximity moderate rain' && isDayTime">
+                <img src="assets/icons/029-storm-1.png" alt="heavy intensity rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='heavy intensity rain' && isDayTime">
+                <img src="assets/icons/015-rain.png" alt="light intensity shower rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='light intensity shower rain' && isDayTime">
+                <img src="assets/icons-2/011-night-rain.png" alt="night rain" style="width:200px;height:200px;" 
+                    *ngIf="(weatherDetails.weather[0].description==='moderate rain' || weatherDetails.weather[0].description==='light rain' ||
+                    weatherDetails.weather[0].description==='proximity moderate rain' || weatherDetails.weather[0].description==='heavy intensity rain' || 
+                    weatherDetails.weather[0].description==='light intensity shower rain') && !isDayTime">
 
-                <img src="assets/icons-2/025-cloudy-2.png" alt="overcast clouds" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='overcast clouds'">
-                <img src="assets/icons-2/030-clouds-1.png" alt="broken clouds" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='broken clouds'">
-                <img src="assets/icons-2/049-clouds.png" alt="few clouds" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='few clouds'">
-                <img src="assets/icons-2/015-clouds-3.png" alt="scattered clouds" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='scattered clouds'">
+                <!-- Cloudy -->
+                <img src="assets/icons-2/025-cloudy-2.png" alt="overcast clouds" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='overcast clouds' && isDayTime">
+                <img src="assets/icons-2/030-clouds-1.png" alt="broken clouds" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='broken clouds' && isDayTime">
+                <img src="assets/icons-2/049-clouds.png" alt="few clouds" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='few clouds' && isDayTime">
+                <img src="assets/icons-2/015-clouds-3.png" alt="scattered clouds" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='scattered clouds' && isDayTime">
+                <img src="assets/icons-2/043-cloudy.png" alt="night clouds" style="width:200px;height:200px;" 
+                          *ngIf="(weatherDetails.weather[0].description==='overcast clouds' || weatherDetails.weather[0].description==='broken clouds' ||
+                          weatherDetails.weather[0].description==='few clouds' || weatherDetails.weather[0].description==='scattered clouds') && !isDayTime">
+                
+                <!-- Mist -->
+                <img src="assets/icons-2/025-cloudy-2.png" alt="mist" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='mist' && isDayTime">
+                <img src="assets/icons-2/030-clouds-1.png" alt="fog" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='fog' && !isDayTime">
+                
+                <!-- Fog -->
+                <img src="assets/icons/006-fog.png" alt="fog" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='fog' && isDayTime">
+                <img src="assets/icons/006-fog.png" alt="fog" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='fog' && !isDayTime">
 
-                <img src="assets/icons-2/025-cloudy-2.png" alt="mist" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='mist'">
+                <!-- Clear sky -->
+                <img src="assets/icons-2/050-sun.png" alt="Sky is Clear" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='Sky is Clear' && isDayTime">
+                <img src="assets/icons-2/050-sun.png" alt="Sky is Clear" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='clear sky' && isDayTime">
+                <img src="assets/icons-2/034-moon.png" alt="Sky is Clear" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='Sky is Clear' && !isDayTime">
+                <img src="assets/icons-2/034-moon.png" alt="Sky is Clear" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='clear sky' && !isDayTime">
 
-                <img src="assets/icons/006-fog.png" alt="fog" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='fog'">
-
-                <img src="assets/icons-2/050-sun.png" alt="Sky is Clear" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='Sky is Clear'">
-                <img src="assets/icons-2/050-sun.png" alt="Sky is Clear" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='clear sky'">
-
+                <!-- Haze -->
                 <img src="assets/icons-2/015-clouds-3.png" alt="haze" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='haze'">
 
+                <!-- Snow -->
                 <img src="assets/icons-2/008-snow-1.png" alt="light snow" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='light snow'">
                 <img src="assets/icons-2/008-snow-1.png" alt="light shower sleet" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='light shower sleet'">
                 <img src="assets/icons-2/042-snow.png" alt="heavy snow" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='heavy snow'">
@@ -38,10 +57,9 @@
                 <p class="lead">Min Temperature <b>{{weatherDetails.main.temp_min}}° C</b></p>
             </div>
         </div>
-
     </div>
-        
 </div>
+
 <div *ngIf="weatherDetails?.cod === 429">
     Since this is a public API with a limitation of 60 calls per day, it seems that the limit has already reached.
     You can check back tomorrow :)
