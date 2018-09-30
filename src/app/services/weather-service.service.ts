@@ -16,7 +16,7 @@ export class WeatherService {
   constructor(private http: HttpClient) { }
 
   getWeather(lat, long) {
-    return this.http.get(this.URL_LOCATION_MOCK,{
+    return this.http.get(this.URL_LOCATION,{
       params: {
         APPID: '0d3043a3816880d0b0a632c0d1fc8962',
         lat: lat,
