@@ -14,10 +14,12 @@
                 <img src="assets/icons-2/040-rain.png" alt="proximity moderate rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='proximity moderate rain' && isDayTime">
                 <img src="assets/icons/029-storm-1.png" alt="heavy intensity rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='heavy intensity rain' && isDayTime">
                 <img src="assets/icons/015-rain.png" alt="light intensity shower rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='light intensity shower rain' && isDayTime">
+                <img src="assets/icons/015-rain.png" alt="shower rain" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='shower rain' && isDayTime">
                 <img src="assets/icons-2/011-night-rain.png" alt="night rain" style="width:200px;height:200px;" 
                     *ngIf="(weatherDetails.weather[0].description==='moderate rain' || weatherDetails.weather[0].description==='light rain' ||
                     weatherDetails.weather[0].description==='proximity moderate rain' || weatherDetails.weather[0].description==='heavy intensity rain' || 
-                    weatherDetails.weather[0].description==='light intensity shower rain') && !isDayTime">
+                    weatherDetails.weather[0].description==='light intensity shower rain' ||
+                    weatherDetails.weather[0].description==='shower rain') && !isDayTime">
 
                 <!-- Cloudy -->
                 <img src="assets/icons-2/025-cloudy-2.png" alt="overcast clouds" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='overcast clouds' && isDayTime">
@@ -30,7 +32,7 @@
                 
                 <!-- Mist -->
                 <img src="assets/icons-2/025-cloudy-2.png" alt="mist" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='mist' && isDayTime">
-                <img src="assets/icons-2/030-clouds-1.png" alt="fog" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='fog' && !isDayTime">
+                <img src="assets/icons-2/030-clouds-1.png" alt="fog" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='mist' && !isDayTime">
                 
                 <!-- Fog -->
                 <img src="assets/icons/006-fog.png" alt="fog" style="width:200px;height:200px;" *ngIf="weatherDetails.weather[0].description==='fog' && isDayTime">
