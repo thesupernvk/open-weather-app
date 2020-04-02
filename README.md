@@ -1,3 +1,7 @@
+# Live Demo
+
+https://thesupernvk.github.io/open-weather-app/
+
 # OpenWeatherApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.0-beta.3.
